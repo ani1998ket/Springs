@@ -36,10 +36,12 @@ for( let i = 0; i < count; i++ ){
 	let s = new SpringRod( nHeight, { x : i * canvas.width / count + 5 , y : canvas.height});
 	
 	//Paramters for each string
-	s.pull( Math.random() * canvas.height/2 - canvas.height / 4 );
-	s.damp = ( Math.random()  + 0.1)/ 100 ;
-	s.stiff =( Math.random() + 0.1)/ 10;
-	
+	//s.pull( Math.random() * canvas.height/2 - canvas.height / 4 );
+	//s.damp = ( Math.random()  + 0.1)/ 100 ;
+	//s.stiff =( Math.random() + 0.1)/ 10;
+	let harmonic = 2;
+	s.pull( Math.sin( i / count * harmonic * Math.PI) * 100 );
+	s.damp = 0.01;
 	rods[i] = s;
 }
 function update(){	
