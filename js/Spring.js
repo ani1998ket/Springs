@@ -7,10 +7,12 @@ class Spring{
 
 		this.v = 0;
 		this.a = 0;
+		this.extA = 0;
 	}
 
 	update(dt = 1){
 		this.a = -this.stiff * ( this.length - this.nLength ) - this.damp * this.v;
+		this.a += this.extA;
 		this.a *= dt;
 		this.v += this.a * dt;
 		this.length += this.v * dt;
